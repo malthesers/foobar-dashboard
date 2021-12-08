@@ -1,0 +1,45 @@
+@use "../abstracts/variables" as *;
+
+.data-block {
+  background-color: $primary-light;
+  border-radius: 2rem;
+  padding: 1rem;
+
+  h2 {
+    text-align: center;
+  }
+
+  article {
+    background-color: $primary-color;
+    border-radius: 2rem;
+    padding: 1rem;
+  }
+
+  &.data-column {
+    article {
+      margin-bottom: 1rem;
+    }
+
+    article:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  &.data-box {
+    .storage-articles {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 1rem;
+    }
+
+    .bartenders-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 1rem;
+
+      img {
+        width: 50%;
+      }
+    }
+  }
+}

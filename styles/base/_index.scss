@@ -1,4 +1,5 @@
 @use "../abstracts/variables" as *;
+@forward "typography";
 
 body {
   background-color: $primary-color;

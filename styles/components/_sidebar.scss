@@ -1,0 +1,16 @@
+@use "../abstracts/variables" as *;
+
+nav {
+  position: fixed;
+  background-color: $primary-light;
+  height: 100vh;
+  padding: 2rem;
+
+  .foobar-logo {
+    text-align: center;
+
+    img {
+      width: 7rem;
+    }
+  }
+}

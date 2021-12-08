@@ -1,0 +1,40 @@
+@use "../abstracts/variables" as *;
+
+h1 {
+  font-family: $header-font;
+  font-weight: $extra-bold;
+  color: $font-color;
+}
+
+h2 {
+  color: $font-color;
+  font-family: $header-font;
+  text-transform: uppercase;
+}
+
+h3 {
+  color: $font-color;
+  font-family: $header-font;
+}
+
+h4 {
+  color: $font-color;
+  font-family: $body-font;
+}
+
+h5 {
+  color: $font-color;
+  font-family: $header-font;
+  font-weight: $bold;
+}
+
+a {
+  text-decoration: none;
+  color: $font-color;
+}
+
+p {
+  color: $font-color;
+  font-family: $body-font;
+  font-size: 0.8rem;
+}

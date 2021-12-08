@@ -4,10 +4,90 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>Foobar Dashboard</title>
+    <link rel="stylesheet" href="https://use.typekit.net/hbf7liu.css" />
+    <link rel="stylesheet" href="https://use.typekit.net/sbo0stt.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <div id="app"></div>
+    <nav>
+      <div class="foobar-logo">
+        <img src="./images/foobar-logo.svg" alt="Foobar logo" />
+      </div>
+      <h2><a href="#section-bartenders">Bartenders</a></h2>
+      <h2><a href="#section-manager">Manager</a></h2>
+      <!-- <h3>Inventory</h3> -->
+    </nav>
+    <section id="section-bartenders">
+      <div id="data-queue" class="data-block data-column">
+        <h2>In queue</h2>
+        <article>
+          <h3>order 1</h3>
+          <h4>1 beer :)</h4>
+        </article>
+        <article>
+          <h3>order 1</h3>
+          <h4>1 beer :)</h4>
+        </article>
+      </div>
+      <div id="data-serving" class="data-block data-column">
+        <h2>Being served</h2>
+        <article>
+          <h3>order 1</h3>
+          <h4>1 beer :)</h4>
+        </article>
+        <article>
+          <h3>order 1</h3>
+          <h4>1 beer :)</h4>
+        </article>
+        <article>
+          <h3>order 1</h3>
+          <h4>1 beer :)</h4>
+        </article>
+      </div>
+      <div id="data-storage" class="data-block data-box">
+        <h2>Storage</h2>
+        <div class="storage-articles"></div>
+      </div>
+      <div id="data-bartenders" class="data-block data-box">
+        <h2>Bartenders</h2>
+        <div class="bartenders-container">
+          <article data-bartender="Jonas">
+            <img src="./images/bartenders/bartender-jonas.png" alt="Jonas" />
+            <h5>Jonas</h5>
+            <p>serving:</p>
+          </article>
+          <article data-bartender="Dannie">
+            <img src="./images/bartenders/bartender-dannie.png" alt="Dannie" />
+            <h5>Dannie</h5>
+            <p>serving:</p>
+          </article>
+          <article data-bartender="Klaus">
+            <img src="./images/bartenders/bartender-klaus.png" alt="Klaus" />
+            <h5>Klaus</h5>
+            <p>serving:</p>
+          </article>
+          <article data-bartender="Peter">
+            <img src="./images/bartenders/bartender-peter.png" alt="Peter" />
+            <h5>Peter</h5>
+            <p>serving:</p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section id="section-manager"></section>
+    <template id="template-keg">
+      <article>
+        <img src="" alt="" />
+        <h5></h5>
+        <p></p>
+      </article>
+    </template>
     <script type="module" src="/main.js"></script>
   </body>
 </html>
