@@ -26,29 +26,13 @@
     <section id="section-bartenders">
       <div id="data-queue" class="data-block data-column">
         <h2>In queue</h2>
-        <article>
-          <h3>order 1</h3>
-          <h4>1 beer :)</h4>
-        </article>
-        <article>
-          <h3>order 1</h3>
-          <h4>1 beer :)</h4>
-        </article>
+        <div class="queue-container">
+        </div>
       </div>
       <div id="data-serving" class="data-block data-column">
         <h2>Being served</h2>
-        <article>
-          <h3>order 1</h3>
-          <h4>1 beer :)</h4>
-        </article>
-        <article>
-          <h3>order 1</h3>
-          <h4>1 beer :)</h4>
-        </article>
-        <article>
-          <h3>order 1</h3>
-          <h4>1 beer :)</h4>
-        </article>
+        <div class="serving-container">
+        </div>
       </div>
       <div id="data-storage" class="data-block data-box">
         <h2>Storage</h2>
@@ -59,35 +43,63 @@
         <div class="bartenders-container">
           <article data-bartender="Jonas">
             <img src="./images/bartenders/bartender-jonas.png" alt="Jonas" />
-            <h5>Jonas</h5>
-            <p>serving:</p>
+            <div class="bartender-info">
+              <h5>Jonas</h5>
+              <p class="bartender-status"></p>
+              <p class="bartender-serving"></p>
+            </div>
           </article>
           <article data-bartender="Dannie">
             <img src="./images/bartenders/bartender-dannie.png" alt="Dannie" />
-            <h5>Dannie</h5>
-            <p>serving:</p>
+            <div class="bartender-info">
+              <h5>Dannie</h5>
+              <p class="bartender-status"></p>
+              <p class="bartender-serving"></p>
+            </div>
           </article>
           <article data-bartender="Klaus">
             <img src="./images/bartenders/bartender-klaus.png" alt="Klaus" />
-            <h5>Klaus</h5>
-            <p>serving:</p>
+            <div class="bartender-info">
+              <h5>Klaus</h5>
+              <p class="bartender-status"></p>
+              <p class="bartender-serving"></p>
+            </div>
           </article>
           <article data-bartender="Peter">
             <img src="./images/bartenders/bartender-peter.png" alt="Peter" />
-            <h5>Peter</h5>
-            <p>serving:</p>
+            <div class="bartender-info">
+              <h5>Peter</h5>
+              <p class="bartender-status"></p>
+              <p class="bartender-serving"></p>
+            </div>
           </article>
         </div>
       </div>
     </section>
     <section id="section-manager"></section>
     <template id="template-keg">
-      <article>
-        <img src="" alt="" />
-        <h5></h5>
-        <p></p>
+      <article class="keg-container">
+        <div class="keg-image-container">
+          <img src="" alt="" />
+        </div>
+        <div class="keg-info">
+          <h4 class="keg-name"></h4>
+          <h5 class="keg-remaining"></h5>
+        </div>
+      </article>
+    </template>
+    <template id="template-order">
+      <article class="order">
+        <div class="order-info">
+          <p class="order-id"></p>
+          <p class="order-time"></p>
+        </div>
+        <div class="order-items">
+          <h4></h4>
+        </div>
       </article>
     </template>
     <script type="module" src="/main.js"></script>
   </body>
 </html>
+

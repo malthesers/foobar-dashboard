@@ -2,16 +2,17 @@
 
 .data-block {
   background-color: $primary-light;
-  border-radius: 2rem;
+  border-radius: 1rem;
   padding: 1rem;
 
   h2 {
     text-align: center;
+    margin-top: 0;
   }
 
   article {
     background-color: $primary-color;
-    border-radius: 2rem;
+    border-radius: 1rem;
     padding: 1rem;
   }
 
@@ -30,6 +31,25 @@
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       grid-gap: 1rem;
+
+      .keg-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .keg-image-container {
+          display: grid;
+
+          img {
+            width: 4rem;
+            place-self: center;
+          }
+        }
+
+        .keg-info {
+          text-align: center;
+        }
+      }
     }
 
     .bartenders-container {
@@ -37,8 +57,25 @@
       grid-template-columns: repeat(2, 1fr);
       grid-gap: 1rem;
 
-      img {
-        width: 50%;
+      article {
+        display: grid;
+        grid-template-columns: 2fr 3fr;
+        grid-gap: 1rem;
+
+        img {
+          min-width: 4rem;
+        }
+
+        .bartender-info {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+
+          > * {
+            font-size: 1rem;
+            margin: 0;
+          }
+        }
       }
     }
   }

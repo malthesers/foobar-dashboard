@@ -1,0 +1,16 @@
+.order {
+  .order-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  h4 {
+    margin: 0;
+  }
+}
