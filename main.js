@@ -3,6 +3,13 @@ import "./styles/style.scss";
 
 window.addEventListener("DOMContentLoaded", () => {
   getData();
+
+  document.querySelectorAll("nav a").forEach((a) => {
+    a.addEventListener("click", (e) => {
+      document.querySelector(".active").classList.remove("active");
+      e.target.classList.add("active");
+    });
+  });
 });
 
 //Const of included beers
@@ -18,10 +25,12 @@ function getData() {
       showBartenders(data.bartenders);
       showQueue(data.queue);
       showServing(data.serving);
+      showTime(data.timestamp);
       getKegs(data.taps);
+      showTotalOrders(data.queue);
 
-      //Recall functin after 2s
-      setTimeout(getData, 10000);
+      //Recall functin after 1s
+      setTimeout(getData, 1000);
     });
 }
 
@@ -33,10 +42,10 @@ function showBartenders(bartenders) {
     if (bartender.servingCustomer === null) {
       bartenderServing.textContent = "Not serving";
     } else {
-      bartenderServing.textContent = `Serving: ${bartender.servingCustomer}`;
+      bartenderServing.textContent = `Serving: #${bartender.servingCustomer}`;
     }
 
-    bartenderStatus.textContent = `Status: ${bartender.status}`;
+    //bartenderStatus.textContent = `Status: ${bartender.status}`;
   });
 }
 
@@ -83,10 +92,22 @@ function showRemaining(beers) {
   beers.slice(0, 4).forEach((beer) => {
     //clone template
     const kegClone = document.querySelector("#template-keg").cloneNode(true).content;
+
     //each template get image, name and remaining
     kegClone.querySelector("img").src = `./images/kegs/${beer.label}`;
     kegClone.querySelector("h4").textContent = beer.name;
     kegClone.querySelector("h5").textContent = `${beer.level} cl`;
+
+    const shadow = kegClone.querySelector(".keg-image-shadow");
+
+    if (beer.level < 101) {
+      shadow.classList.add("shadow-low");
+    } else if (beer.level < 501) {
+      shadow.classList.add("shadow-middle");
+    } else if (beer.level > 500) {
+      shadow.classList.add("shadow-high");
+    }
+
     // insert/append content in container
     container.appendChild(kegClone);
   });
@@ -121,7 +142,7 @@ function showQueue(orders) {
     const minutes = time.getMinutes().toString().padStart(2, "0");
 
     //Insert order id and time stamp
-    orderClone.querySelector(".order-id").textContent = order.id;
+    orderClone.querySelector(".order-id").textContent = `#${order.id}`;
     orderClone.querySelector(".order-time").textContent = `${hours}:${minutes}`;
 
     container.appendChild(orderClone);
@@ -153,11 +174,11 @@ function showServing(orders) {
 
     //Convert UNIX to time stamp
     const time = new Date(order.startTime);
-    const hours = time.getHours();
-    const minutes = time.getMinutes().toString().padStart(2, "0");
+    const hours = getTime(time, "hours");
+    const minutes = getTime(time, "minutes");
 
     //Insert order id and time stamp
-    orderClone.querySelector(".order-id").textContent = order.id;
+    orderClone.querySelector(".order-id").textContent = `#${order.id}`;
     orderClone.querySelector(".order-time").textContent = `${hours}:${minutes}`;
 
     container.appendChild(orderClone);
@@ -170,4 +191,31 @@ function replaceBeer(beer) {
   beer === "Row 26" ? (beer = "Sleighride") : beer;
 
   return beer;
+}
+
+function showTime(timestamp) {
+  const time = new Date(timestamp);
+  const hours = getTime(time, "hours");
+  const minutes = getTime(time, "minutes");
+  const seconds = getTime(time, "seconds");
+
+  document.querySelector(".header-time").textContent = `${hours}:${minutes}:${seconds}`;
+}
+
+function getTime(time, unit) {
+  unit === "hours" ? (time = time.getHours().toString().padStart(2, "0")) : time;
+  unit === "minutes" ? (time = time.getMinutes().toString().padStart(2, "0")) : time;
+  unit === "seconds" ? (time = time.getSeconds().toString().padStart(2, "0")) : time;
+
+  return time;
+}
+
+function showTotalOrders(queue) {
+  if (queue.length > 0) {
+    const index = queue.length - 1;
+
+    const totalOrders = queue[index].id;
+
+    document.querySelector(".total-orders").textContent = totalOrders;
+  }
 }

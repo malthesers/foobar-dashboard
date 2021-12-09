@@ -1,10 +1,42 @@
-$primary-color: #191919;
-$primary-light: #424242;
-$secondary-color: #ffd750;
-$font-color: #ffffff;
+$theme: "dark";
+$primary-color: var(--primary-color);
+$primary-light: var(--primary-light);
+$primary-dark: var(--primary-dark);
+$secondary-color: var(--secondary-color);
+$font-color: var(--font-color);
+$low-color: var(--low-color);
+$middle-color: var(--middle-color);
+$high-color: var(--high-color);
+$logo-src: url(./images/foobar-logo-#{$theme}.svg);
 $header-font: rustica, sans-serif;
 $body-font: "Open Sans", sans-serif;
 $regular: 500;
 $bold: 700;
 $extra-bold: 800;
 $black: 900;
+
+html[data-theme="dark"] {
+  --theme: "dark";
+  --primary-color: #191919;
+  --primary-light: #383838;
+  --primary-dark: #242424;
+  --secondary-color: #ffd750;
+  --font-color: #ffffff;
+  --low-color: red;
+  --middle-color: rgb(214, 214, 69);
+  --high-color: rgb(59, 163, 59);
+  --logo-src: "./images/foobar-logo-dark.svg";
+}
+
+html[data-theme="light"] {
+  --theme: "light";
+  --primary-color: white;
+  --primary-light: lightgrey;
+  --primary-dark: grey;
+  --secondary-color: blue;
+  --font-color: black;
+  --low-color: red;
+  --middle-color: yellow;
+  --high-color: green;
+  --logo-src: "./images/foobar-logo-light.svg";
+}

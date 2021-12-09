@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
@@ -15,14 +15,27 @@
     />
   </head>
   <body>
-    <nav>
-      <div class="foobar-logo">
-        <img src="./images/foobar-logo.svg" alt="Foobar logo" />
-      </div>
-      <h2><a href="#section-bartenders">Bartenders</a></h2>
-      <h2><a href="#section-manager">Manager</a></h2>
-      <!-- <h3>Inventory</h3> -->
-    </nav>
+    <header>
+      <nav>
+        <div class="header-left">
+          <div class="foobar-logo">
+            <!-- <img src="./images/foobar-logo.svg" alt="Foobar logo" /> -->
+          </div>
+          <h2 class="header-time"></h2>
+          <h3>Time to close: 04:23:54</h3>
+        </div>
+        <div class="header-right">
+          <div class="theme-switch-container">
+            <label class="theme-switch" for="checkbox">
+              <input type="checkbox" id="checkbox">
+              <div class="theme-slider"></div>
+            </label>
+          </div>
+          <h2><a href="#section-bartenders" class="active">Bartenders</a></h2>
+          <h2><a href="#section-manager">Manager</a></h2>
+        </div>
+      </nav>
+    </header>
     <section id="section-bartenders">
       <div id="data-queue" class="data-block data-column">
         <h2>In queue</h2>
@@ -34,18 +47,18 @@
         <div class="serving-container">
         </div>
       </div>
-      <div id="data-storage" class="data-block data-box">
+      <div id="data-storage" class="data-block data-box data-box-storage">
         <h2>Storage</h2>
         <div class="storage-articles"></div>
       </div>
-      <div id="data-bartenders" class="data-block data-box">
+      <div id="data-bartenders" class="data-block data-box data-box-bartenders">
         <h2>Bartenders</h2>
         <div class="bartenders-container">
           <article data-bartender="Jonas">
             <img src="./images/bartenders/bartender-jonas.png" alt="Jonas" />
             <div class="bartender-info">
               <h5>Jonas</h5>
-              <p class="bartender-status"></p>
+              <!-- <p class="bartender-status"></p> -->
               <p class="bartender-serving"></p>
             </div>
           </article>
@@ -53,7 +66,7 @@
             <img src="./images/bartenders/bartender-dannie.png" alt="Dannie" />
             <div class="bartender-info">
               <h5>Dannie</h5>
-              <p class="bartender-status"></p>
+              <!-- <p class="bartender-status"></p> -->
               <p class="bartender-serving"></p>
             </div>
           </article>
@@ -61,7 +74,7 @@
             <img src="./images/bartenders/bartender-klaus.png" alt="Klaus" />
             <div class="bartender-info">
               <h5>Klaus</h5>
-              <p class="bartender-status"></p>
+              <!-- <p class="bartender-status"></p> -->
               <p class="bartender-serving"></p>
             </div>
           </article>
@@ -69,17 +82,25 @@
             <img src="./images/bartenders/bartender-peter.png" alt="Peter" />
             <div class="bartender-info">
               <h5>Peter</h5>
-              <p class="bartender-status"></p>
+              <!-- <p class="bartender-status"></p> -->
               <p class="bartender-serving"></p>
             </div>
           </article>
         </div>
       </div>
+      <div id="data-total-orders" class="data-block data-box data-box-orders">
+        <h2>Orders today</h2>
+        <h3 class="total-orders"></h3>
+
+      </div>
     </section>
-    <section id="section-manager"></section>
+    <section id="section-manager">
+      
+    </section>
     <template id="template-keg">
       <article class="keg-container">
         <div class="keg-image-container">
+          <div class="keg-image-shadow"></div>
           <img src="" alt="" />
         </div>
         <div class="keg-info">

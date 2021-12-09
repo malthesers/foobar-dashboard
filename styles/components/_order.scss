@@ -1,16 +1,27 @@
+@use "../abstracts/variables" as *;
+
 .order {
+  -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  background-color: $primary-light;
+  mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  padding: 1rem 1rem 2rem 1rem;
+  margin-bottom: -0.5rem;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+
   .order-info {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-bottom: 0.5rem;
 
     p {
       margin: 0;
+      margin-bottom: 0.3rem;
     }
   }
 
   h4 {
     margin: 0;
+    font-size: 1rem;
   }
 }

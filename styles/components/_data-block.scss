@@ -1,29 +1,21 @@
 @use "../abstracts/variables" as *;
 
 .data-block {
-  background-color: $primary-light;
+  background-color: $primary-dark;
   border-radius: 1rem;
   padding: 1rem;
 
   h2 {
-    text-align: center;
+    text-align: left;
     margin-top: 0;
+    margin-left: 0.3rem;
+    font-size: 1rem;
   }
 
-  article {
-    background-color: $primary-color;
-    border-radius: 1rem;
-    padding: 1rem;
-  }
-
-  &.data-column {
-    article {
-      margin-bottom: 1rem;
-    }
-
-    article:last-of-type {
-      margin-bottom: 0;
-    }
+  .total-orders {
+    font-size: 4rem;
+    font-weight: 100;
+    text-align: center;
   }
 
   &.data-box {
@@ -36,13 +28,38 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        padding: 1rem;
+        border-radius: 1rem;
 
         .keg-image-container {
+          position: relative;
           display: grid;
+
+          .keg-image-shadow {
+            position: absolute;
+            width: 2.5rem;
+            height: 80%;
+            place-self: center;
+            border-radius: 0.2rem;
+            opacity: 0.5;
+          }
+
+          .shadow-low {
+            box-shadow: 0px 0px 11px 11px $low-color;
+          }
+
+          .shadow-middle {
+            box-shadow: 0px 0px 11px 11px $middle-color;
+          }
+
+          .shadow-high {
+            box-shadow: 0px 0px 11px 11px $high-color;
+          }
 
           img {
             width: 4rem;
             place-self: center;
+            z-index: 1;
           }
         }
 
@@ -61,6 +78,8 @@
         display: grid;
         grid-template-columns: 2fr 3fr;
         grid-gap: 1rem;
+        padding: 1rem;
+        border-radius: 1rem;
 
         img {
           min-width: 4rem;

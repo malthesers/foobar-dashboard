@@ -1,16 +1,62 @@
 @use "../abstracts/variables" as *;
 
-nav {
+header {
   position: fixed;
-  background-color: $primary-light;
-  height: 100vh;
-  padding: 2rem;
+  background-color: $primary-color;
+  width: 100vw;
 
-  .foobar-logo {
-    text-align: center;
+  nav {
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 
-    img {
-      width: 7rem;
+    .header-left {
+      .foobar-logo {
+        display: inline-block;
+        // text-align: center;
+        width: 3.25rem;
+        height: 4rem;
+        background-image: $logo-src;
+        background-size: cover;
+
+        img {
+          width: 4rem;
+        }
+      }
+
+      h3 {
+        display: inline-block;
+        margin: 0rem;
+      }
+      .header-time {
+        display: inline-block;
+        font-size: 2rem;
+        text-align: center;
+        margin: 0;
+      }
+    }
+
+    .header-right {
+      h2 {
+        display: inline-block;
+        margin: 0rem;
+
+        a {
+          color: $font-color;
+          filter: opacity(0.5);
+          transition-duration: 0.3s;
+
+          &:hover {
+            filter: opacity(1);
+          }
+
+          &.active {
+            filter: opacity(1);
+          }
+        }
+      }
     }
   }
 }
