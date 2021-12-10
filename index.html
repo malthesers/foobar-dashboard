@@ -13,6 +13,7 @@
       href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="./styles/style.scss" />
   </head>
   <body>
     <header>
@@ -21,14 +22,129 @@
           <div class="foobar-logo">
             <!-- <img src="./images/foobar-logo.svg" alt="Foobar logo" /> -->
           </div>
-          <h2 class="header-time"></h2>
-          <h3>Time to close: 04:23:54</h3>
+          <h2 class="header-current-time"></h2>
+          <h3 class="header-remaining-time">Time to close: 04:23:54</h3>
         </div>
         <div class="header-right">
           <div class="theme-switch-container">
             <label class="theme-switch" for="checkbox">
-              <input type="checkbox" id="checkbox">
-              <div class="theme-slider"></div>
+              <input type="checkbox" id="checkbox" />
+              <div class="theme-slider">
+                <svg
+                  class="icon-moon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16.112"
+                  height="26.633"
+                  viewBox="0 0 16.112 26.633"
+                >
+                  <path
+                    id="Path_184"
+                    data-name="Path 184"
+                    d="M22.573,0S28.683.036,32.8,3.993a13.277,13.277,0,0,1,4.043,9.524c0,4.462-2.046,6.432-4.043,8.325-4.392,4.168-12.07,4.791-12.07,4.791s6.217-5.65,6.217-13.116A25.716,25.716,0,0,0,22.573,0Z"
+                    transform="translate(-20.732)"
+                    fill="#fff"
+                  />
+                </svg>
+                <svg
+                  class="icon-sun"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                >
+                  <g
+                    id="Group_428"
+                    data-name="Group 428"
+                    transform="translate(-1825.5 -59.5)"
+                  >
+                    <circle
+                      id="Ellipse_135"
+                      data-name="Ellipse 135"
+                      cx="9"
+                      cy="9"
+                      r="9"
+                      transform="translate(1833 67)"
+                      fill="#fff"
+                    />
+                    <line
+                      id="Line_125"
+                      data-name="Line 125"
+                      y2="4"
+                      transform="translate(1842.5 59.5)"
+                      fill="none"
+                      stroke="#fff"
+                      stroke-width="1"
+                    />
+                    <line
+                      id="Line_126"
+                      data-name="Line 126"
+                      y2="3"
+                      transform="translate(1842.5 88.5)"
+                      fill="none"
+                      stroke="#fff"
+                      stroke-width="1"
+                    />
+                    <line
+                      id="Line_127"
+                      data-name="Line 127"
+                      x2="2"
+                      y2="2"
+                      transform="translate(1852.5 85.5)"
+                      fill="none"
+                      stroke="#fff"
+                      stroke-width="1"
+                    />
+                    <line
+                      id="Line_128"
+                      data-name="Line 128"
+                      y1="2"
+                      x2="3"
+                      transform="translate(1851.5 65.5)"
+                      fill="none"
+                      stroke="#fff"
+                      stroke-width="1"
+                    />
+                    <line
+                      id="Line_129"
+                      data-name="Line 129"
+                      x2="4"
+                      transform="translate(1853.5 76.5)"
+                      fill="none"
+                      stroke="#fff"
+                      stroke-width="1"
+                    />
+                    <line
+                      id="Line_130"
+                      data-name="Line 130"
+                      x2="2"
+                      y2="2"
+                      transform="translate(1830.5 67) rotate(180)"
+                      fill="none"
+                      stroke="#fff"
+                      stroke-width="1"
+                    />
+                    <line
+                      id="Line_131"
+                      data-name="Line 131"
+                      y1="2"
+                      x2="3"
+                      transform="translate(1831.5 87) rotate(180)"
+                      fill="none"
+                      stroke="#fff"
+                      stroke-width="1"
+                    />
+                    <line
+                      id="Line_132"
+                      data-name="Line 132"
+                      x2="4"
+                      transform="translate(1829.5 76) rotate(180)"
+                      fill="none"
+                      stroke="#fff"
+                      stroke-width="1"
+                    />
+                  </g>
+                </svg>
+              </div>
             </label>
           </div>
           <h2><a href="#section-bartenders" class="active">Bartenders</a></h2>
@@ -39,13 +155,11 @@
     <section id="section-bartenders">
       <div id="data-queue" class="data-block data-column">
         <h2>In queue</h2>
-        <div class="queue-container">
-        </div>
+        <div class="queue-container"></div>
       </div>
       <div id="data-serving" class="data-block data-column">
         <h2>Being served</h2>
-        <div class="serving-container">
-        </div>
+        <div class="serving-container"></div>
       </div>
       <div id="data-storage" class="data-block data-box data-box-storage">
         <h2>Storage</h2>
@@ -90,13 +204,95 @@
       </div>
       <div id="data-total-orders" class="data-block data-box data-box-orders">
         <h2>Orders today</h2>
-        <h3 class="total-orders"></h3>
-
+        <div class="total-orders-container">
+          <h3 class="total-orders"></h3>
+        </div>
       </div>
     </section>
+
+    <!-- ---------------MANAGER!!! ----------->
+
     <section id="section-manager">
-      
+      <div id="data-inventory" class="data-block data-box data-box-inventory">
+        <h2>Inventory</h2>
+        <div class="inventory-articles"></div>
+        <div id="inventory-chart-container"></div>
+      </div>
+
+      <div
+        id="data-orders-queue"
+        class="data-block data-box data-box-orders-queue"
+      >
+        <div class="in-queue-container">
+          <h2>In queue</h2>
+          <div class="in-queue-number-container">
+            <h3 class="in-queue-number"></h3>
+          </div>
+        </div>
+        <div class="being-served-container">
+          <h2>Being served</h2>
+          <div class="being-served-number-container">
+            <h3 class="being-served-number"></h3>
+          </div>
+        </div>
+      </div>
+
+      <div id="data-total-orders" class="data-block data-box data-box-orders">
+        <h2>Orders today</h2>
+        <div class="total-orders-container">
+          <h3 class="total-orders"></h3>
+        </div>
+      </div>
+
+      <div
+        id="data-bartenders"
+        class="data-block data-box data-box-manager-bartenders"
+      >
+        <h2>Bartenders</h2>
+        <div class="bartenders-container">
+          <article data-bartender="Jonas">
+            <img src="./images/bartenders/bartender-jonas.png" alt="Jonas" />
+            <div class="bartender-info">
+              <h5>Jonas</h5>
+              <!-- <p class="bartender-status"></p> -->
+              <p class="bartender-serving"></p>
+            </div>
+          </article>
+          <article data-bartender="Dannie">
+            <img src="./images/bartenders/bartender-dannie.png" alt="Dannie" />
+            <div class="bartender-info">
+              <h5>Dannie</h5>
+              <!-- <p class="bartender-status"></p> -->
+              <p class="bartender-serving"></p>
+            </div>
+          </article>
+          <article data-bartender="Klaus">
+            <img src="./images/bartenders/bartender-klaus.png" alt="Klaus" />
+            <div class="bartender-info">
+              <h5>Klaus</h5>
+              <!-- <p class="bartender-status"></p> -->
+              <p class="bartender-serving"></p>
+            </div>
+          </article>
+          <article data-bartender="Peter">
+            <img src="./images/bartenders/bartender-peter.png" alt="Peter" />
+            <div class="bartender-info">
+              <h5>Peter</h5>
+              <!-- <p class="bartender-status"></p> -->
+              <p class="bartender-serving"></p>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div id="data-sales" class="data-block data-box data-box-storage">
+        <h2>Today's Sale</h2>
+        <div class="sales-articles"></div>
+        <div id="sales-chart-container"></div>
+      </div>
     </section>
+
+    <!-- Template til bartender siden -->
     <template id="template-keg">
       <article class="keg-container">
         <div class="keg-image-container">
@@ -120,7 +316,28 @@
         </div>
       </article>
     </template>
+
+    <!-- Templates til manager-siden -->
+
+    <template id="template-inventory">
+      <article class="inventory-container">
+        <div class="inventory-info">
+          <h4 class="inventory-name"></h4>
+          <h5 class="inventory-amount"></h5>
+        </div>
+      </article>
+    </template>
+
+    <template id="template-sales">
+      <article class="sales-container">
+        <div class="sales-info">
+          <h4 class="sales-name"></h4>
+          <h5 class="sales-amount"></h5>
+        </div>
+      </article>
+    </template>
+
     <script type="module" src="/main.js"></script>
+    <script type="module" src="/barcharts.js"></script>
   </body>
 </html>
-

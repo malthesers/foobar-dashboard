@@ -4,6 +4,7 @@ header {
   position: fixed;
   background-color: $primary-color;
   width: 100vw;
+  z-index: 10;
 
   nav {
     padding: 1rem;
@@ -13,13 +14,22 @@ header {
     align-items: center;
 
     .header-left {
+      display: flex;
+      align-items: center;
+
+      > * {
+        place-self: center;
+        margin-inline: 0.5rem;
+      }
+
       .foobar-logo {
         display: inline-block;
-        // text-align: center;
         width: 3.25rem;
         height: 4rem;
-        background-image: $logo-src;
-        background-size: cover;
+        background-image: url(../images/icons/foobar-logo-dark.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        transition-duration: 0.3s;
 
         img {
           width: 4rem;
@@ -29,16 +39,27 @@ header {
       h3 {
         display: inline-block;
         margin: 0rem;
+        font-size: 1rem;
+        margin-left: 1rem;
+        font-weight: 300;
       }
+
       .header-time {
         display: inline-block;
-        font-size: 2rem;
+        font-size: 1rem;
         text-align: center;
         margin: 0;
+        margin-left: 1rem;
       }
     }
 
     .header-right {
+      display: flex;
+
+      > * {
+        place-self: center;
+      }
+
       h2 {
         display: inline-block;
         margin: 0rem;
@@ -47,6 +68,9 @@ header {
           color: $font-color;
           filter: opacity(0.5);
           transition-duration: 0.3s;
+          font-size: 1rem;
+          margin: 0rem;
+          margin-left: 1rem;
 
           &:hover {
             filter: opacity(1);

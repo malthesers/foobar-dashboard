@@ -4,10 +4,10 @@ $primary-light: var(--primary-light);
 $primary-dark: var(--primary-dark);
 $secondary-color: var(--secondary-color);
 $font-color: var(--font-color);
+$icon-color: var(--icon-color);
 $low-color: var(--low-color);
 $middle-color: var(--middle-color);
 $high-color: var(--high-color);
-$logo-src: url(./images/foobar-logo-#{$theme}.svg);
 $header-font: rustica, sans-serif;
 $body-font: "Open Sans", sans-serif;
 $regular: 500;
@@ -21,22 +21,22 @@ html[data-theme="dark"] {
   --primary-light: #383838;
   --primary-dark: #242424;
   --secondary-color: #ffd750;
-  --font-color: #ffffff;
+  --font-color: white;
+  --icon-color: white;
   --low-color: red;
   --middle-color: rgb(214, 214, 69);
   --high-color: rgb(59, 163, 59);
-  --logo-src: "./images/foobar-logo-dark.svg";
 }
 
 html[data-theme="light"] {
   --theme: "light";
-  --primary-color: white;
-  --primary-light: lightgrey;
-  --primary-dark: grey;
+  --primary-color: #fcfcfc;
+  --primary-light: #d7d7d7;
+  --primary-dark: #efefef;
   --secondary-color: blue;
   --font-color: black;
-  --low-color: red;
-  --middle-color: yellow;
-  --high-color: green;
-  --logo-src: "./images/foobar-logo-light.svg";
+  --icon-color: black;
+  --low-color: rgb(182, 86, 86);
+  --middle-color: rgb(214, 214, 69);
+  --high-color: rgb(59, 163, 59);
 }
