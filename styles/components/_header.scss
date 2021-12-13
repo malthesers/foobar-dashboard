@@ -9,7 +9,7 @@ header {
   nav {
     padding: 1rem;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
 
@@ -42,6 +42,10 @@ header {
         font-size: 1rem;
         margin-left: 1rem;
         font-weight: 300;
+      }
+
+      .header-remaining-time {
+        display: none;
       }
 
       .header-time {
@@ -82,5 +86,15 @@ header {
         }
       }
     }
+  }
+}
+
+@media (min-width: 1000px) {
+  .header-remaining-time {
+    display: inline-block !important;
+  }
+
+  header nav {
+    flex-direction: row;
   }
 }

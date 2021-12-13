@@ -3,7 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1"
+    />
     <title>Foobar Dashboard</title>
     <link rel="stylesheet" href="https://use.typekit.net/hbf7liu.css" />
     <link rel="stylesheet" href="https://use.typekit.net/sbo0stt.css" />
@@ -169,7 +172,10 @@
         <h2>Bartenders</h2>
         <div class="bartenders-container">
           <article data-bartender="Jonas">
-            <img src="./images/bartenders/bartender-jonas.png" alt="Jonas" />
+            <div class="bartender-image-container">
+              <img src="./images/bartenders/bartender-jonas.png" alt="Jonas" />
+              <span class="bartender-status-dot"></span>
+            </div>
             <div class="bartender-info">
               <h5>Jonas</h5>
               <!-- <p class="bartender-status"></p> -->
@@ -177,7 +183,13 @@
             </div>
           </article>
           <article data-bartender="Dannie">
-            <img src="./images/bartenders/bartender-dannie.png" alt="Dannie" />
+            <div class="bartender-image-container">
+              <img
+                src="./images/bartenders/bartender-dannie.png"
+                alt="Dannie"
+              />
+              <span class="bartender-status-dot"></span>
+            </div>
             <div class="bartender-info">
               <h5>Dannie</h5>
               <!-- <p class="bartender-status"></p> -->
@@ -185,7 +197,10 @@
             </div>
           </article>
           <article data-bartender="Klaus">
-            <img src="./images/bartenders/bartender-klaus.png" alt="Klaus" />
+            <div class="bartender-image-container">
+              <img src="./images/bartenders/bartender-klaus.png" alt="Klaus" />
+              <span class="bartender-status-dot"></span>
+            </div>
             <div class="bartender-info">
               <h5>Klaus</h5>
               <!-- <p class="bartender-status"></p> -->
@@ -193,7 +208,10 @@
             </div>
           </article>
           <article data-bartender="Peter">
-            <img src="./images/bartenders/bartender-peter.png" alt="Peter" />
+            <div class="bartender-image-container">
+              <img src="./images/bartenders/bartender-peter.png" alt="Peter" />
+              <span class="bartender-status-dot"></span>
+            </div>
             <div class="bartender-info">
               <h5>Peter</h5>
               <!-- <p class="bartender-status"></p> -->
@@ -251,7 +269,10 @@
         <h2>Bartenders</h2>
         <div class="bartenders-container">
           <article data-bartender="Jonas">
-            <img src="./images/bartenders/bartender-jonas.png" alt="Jonas" />
+            <div class="bartender-image-container">
+              <img src="./images/bartenders/bartender-jonas.png" alt="Jonas" />
+              <span class="bartender-status-dot"></span>
+            </div>
             <div class="bartender-info">
               <h5>Jonas</h5>
               <!-- <p class="bartender-status"></p> -->
@@ -259,7 +280,13 @@
             </div>
           </article>
           <article data-bartender="Dannie">
-            <img src="./images/bartenders/bartender-dannie.png" alt="Dannie" />
+            <div class="bartender-image-container">
+              <img
+                src="./images/bartenders/bartender-dannie.png"
+                alt="Dannie"
+              />
+              <span class="bartender-status-dot"></span>
+            </div>
             <div class="bartender-info">
               <h5>Dannie</h5>
               <!-- <p class="bartender-status"></p> -->
@@ -267,7 +294,10 @@
             </div>
           </article>
           <article data-bartender="Klaus">
-            <img src="./images/bartenders/bartender-klaus.png" alt="Klaus" />
+            <div class="bartender-image-container">
+              <img src="./images/bartenders/bartender-klaus.png" alt="Klaus" />
+              <span class="bartender-status-dot"></span>
+            </div>
             <div class="bartender-info">
               <h5>Klaus</h5>
               <!-- <p class="bartender-status"></p> -->
@@ -275,7 +305,10 @@
             </div>
           </article>
           <article data-bartender="Peter">
-            <img src="./images/bartenders/bartender-peter.png" alt="Peter" />
+            <div class="bartender-image-container">
+              <img src="./images/bartenders/bartender-peter.png" alt="Peter" />
+              <span class="bartender-status-dot"></span>
+            </div>
             <div class="bartender-info">
               <h5>Peter</h5>
               <!-- <p class="bartender-status"></p> -->
@@ -285,7 +318,7 @@
         </div>
       </div>
 
-      <div id="data-sales" class="data-block data-box data-box-storage">
+      <div id="data-sales" class="data-block data-box data-box-sales">
         <h2>Today's Sale</h2>
         <div class="sales-articles"></div>
         <div id="sales-chart-container"></div>

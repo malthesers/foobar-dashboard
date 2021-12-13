@@ -20,7 +20,7 @@ html {
       display: inline-block;
       width: 100%;
       height: 100%;
-      padding: 7rem 1rem 1rem 1rem;
+      padding: 10rem 1rem 1rem 1rem;
     }
 
     #section-bartenders {
@@ -49,29 +49,94 @@ html {
     }
 
     #section-manager {
-      display: grid;
-      grid-template-columns: repeat(10, 1fr);
-      grid-template-rows: repeat(2, 1fr);
+      // display: grid;
+      // grid-template-columns: repeat(10, 1fr);
+      // grid-template-rows: repeat(2, 1fr);
+      // grid-gap: 1rem;
+
+      display: flex;
+      flex-direction: column;
       grid-gap: 1rem;
     }
 
-    .data-box-inventory {
-      grid-column: 1/7;
-      grid-row: span 1;
-    }
+    // .data-box-inventory {
+    //   // grid-column: 1/7;
+    //   // grid-row: span 1;
+    // }
 
-    .data-box-orders-queue {
-      grid-column: 7/9;
-      grid-row: span 1;
-    }
+    // .data-box-orders-queue {
+    //   // grid-column: 7/9;
+    //   // grid-row: span 1;
+    // }
 
-    .data-box-manager-bartenders {
-      grid-column: 1/5;
-      grid-row: span 1;
+    // .data-box-manager-bartenders {
+    //   // grid-column: 1/5;
+    //   // grid-row: span 1;
+    // }
+  }
+  // ----------STOR IPAD PRO ----------
+  @media (min-width: 1000px) {
+    body {
+      height: 100vh;
+
+      #section-bartenders {
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+        grid-gap: 1rem;
+      }
+
+      .data-column {
+        grid-column: span 3;
+        grid-row: span 3;
+      }
+
+      .data-box-storage {
+        grid-column: 7/12;
+        grid-row: span 3;
+      }
+
+      .data-box-bartenders {
+        grid-column: 1/7;
+        grid-row: span 2;
+      }
+
+      .data-box-orders {
+        grid-column: 7/12;
+        grid-row: span 2;
+      }
+
+      #section-manager {
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-gap: 1rem;
+      }
+
+      .data-box-inventory {
+        grid-column: 1/8;
+        grid-row: span 1;
+      }
+
+      .data-box-orders-queue {
+        grid-column: 8/12;
+        grid-row: span 1;
+      }
+
+      .data-box-sales {
+        grid-column: 1/12;
+        grid-row: 2/3;
+      }
+
+      .data-box-manager-bartenders {
+        grid-column: 1/7;
+        grid-row: 3/5;
+      }
     }
   }
 
-  @media (min-width: 1000px) {
+  // ---------- WEB/PC ----------
+  @media (min-width: 1100px) {
     body {
       height: 100vh;
 
@@ -80,6 +145,10 @@ html {
         grid-template-columns: repeat(10, 1fr);
         grid-template-rows: repeat(2, 1fr);
         grid-gap: 1rem;
+      }
+
+      section {
+        padding: 7rem 1rem 1rem 1rem;
       }
 
       .data-column {
@@ -122,6 +191,11 @@ html {
       .data-box-manager-bartenders {
         grid-column: 1/5;
         grid-row: span 1;
+      }
+
+      .data-box-sales {
+        grid-column: 5/12;
+        grid-row: 2/3;
       }
     }
   }

@@ -45,7 +45,7 @@ function getData() {
 function showBartenders(bartenders) {
   bartenders.forEach((bartender) => {
     const bartenderServing = document.querySelector(`#section-bartenders article[data-bartender="${bartender.name}"] .bartender-serving`);
-    const bartenderStatus = document.querySelector(`#section-bartenders article[data-bartender="${bartender.name}"] .bartender-status`);
+    const bartenderStatus = document.querySelector(`#section-bartenders article[data-bartender="${bartender.name}"] .bartender-status-dot`);
 
     if (bartender.servingCustomer === null) {
       bartenderServing.textContent = "Not serving";
@@ -53,18 +53,32 @@ function showBartenders(bartenders) {
       bartenderServing.textContent = `Serving: #${bartender.servingCustomer}`;
     }
 
-    //bartenderStatus.textContent = `Status: ${bartender.status}`;
+    if (bartender.status === "WORKING") {
+      bartenderStatus.classList.add("dot-working");
+    } else if (bartender.status === "READY") {
+      bartenderStatus.classList.add("dot-ready");
+    }
+
   });
   
   bartenders.forEach((bartender) => {
     const bartenderServing = document.querySelector(`#section-manager article[data-bartender="${bartender.name}"] .bartender-serving`);
-    const bartenderStatus = document.querySelector(`#section-manager article[data-bartender="${bartender.name}"] .bartender-status`);
+    const bartenderStatus = document.querySelector(`#section-manager article[data-bartender="${bartender.name}"] .bartender-status-dot`);
 
     if (bartender.servingCustomer === null) {
       bartenderServing.textContent = "Not serving";
     } else {
       bartenderServing.textContent = `Serving: #${bartender.servingCustomer}`;
     }
+
+    if (bartender.status ==="WORKING"){
+      bartenderStatus.classList.add("dot-working");
+  
+    } else if (bartender.status ==="READY"){
+      bartenderStatus.classList.add("dot-ready");
+    }
+
+
 
     //bartenderStatus.textContent = `Status: ${bartender.status}`;
   });

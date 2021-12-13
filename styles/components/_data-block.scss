@@ -46,6 +46,7 @@
     &#data-inventory {
       display: flex;
       flex-flow: column;
+      height: 24rem;
 
       #inventory-chart-container {
         display: flex;
@@ -56,6 +57,7 @@
     &#data-sales {
       display: flex;
       flex-flow: column;
+      height: 24rem;
 
       #sales-chart-container {
         display: flex;
@@ -71,7 +73,7 @@
 
     .storage-articles {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       grid-gap: 1rem;
 
       .keg-container {
@@ -87,7 +89,7 @@
 
           .keg-image-shadow {
             position: absolute;
-            width: 2.5rem;
+            width: 4rem;
             height: 80%;
             place-self: center;
             border-radius: 0.2rem;
@@ -119,6 +121,60 @@
       }
     }
 
+    @media (min-width: 750px) {
+      &#data-bartenders {
+        .bartenders-container {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          grid-gap: 1rem;
+
+          article {
+            display: grid;
+            grid-template-columns: 2fr 3fr;
+            grid-gap: 1rem;
+
+            border-radius: 1rem;
+            padding-bottom: 1rem;
+          }
+        }
+      }
+
+      &.data-box {
+        &#data-inventory {
+          height: 100%;
+        }
+      }
+
+      &#data-sales {
+        display: flex;
+        flex-flow: column;
+        height: 100%;
+      }
+    }
+
+    @media (min-width: 1100px) {
+      .storage-articles {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      &#data-bartenders {
+        .bartenders-container {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          grid-gap: 1rem;
+
+          article {
+            display: grid;
+            grid-template-columns: 2fr 3fr;
+            grid-gap: 1rem;
+            padding: 1rem;
+            border-radius: 1rem;
+            padding-bottom: 0;
+          }
+        }
+      }
+    }
+
     &#data-bartenders {
       .bartenders-container {
         display: grid;
@@ -129,11 +185,34 @@
           display: grid;
           grid-template-columns: 2fr 3fr;
           grid-gap: 1rem;
-          padding: 1rem;
           border-radius: 1rem;
           padding-bottom: 0;
-          img {
-            min-width: 4rem;
+
+          .bartender-image-container {
+            position: relative;
+
+            img {
+              display: block;
+              min-width: 4rem;
+            }
+
+            .bartender-status-dot {
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              width: 1rem;
+              height: 1rem;
+              border-radius: 2rem;
+              background-color: $low-color;
+            }
+
+            .dot-ready {
+              background-color: $high-color;
+            }
+
+            .dot-working {
+              background-color: $middle-color;
+            }
           }
 
           .bartender-info {
