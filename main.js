@@ -312,12 +312,7 @@ function switchTheme() {
 }
 
 function showOrderNumbers(queue, serving) {
-  const queueIndex = queue.order;
-
   const totalQueue = queue.length;
-
-  const servingIndex = serving.order;
-
   const totalServing = serving.length;
 
   document.querySelector(".in-queue-number").textContent = totalQueue;
