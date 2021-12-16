@@ -51,6 +51,8 @@ function showBartenders(bartenders) {
       bartenderServing.textContent = `Serving: #${bartender.servingCustomer}`;
     }
 
+    bartenderStatus.classList = "bartender-status-dot";
+
     if (bartender.status === "WORKING") {
       bartenderStatus.classList.add("dot-working");
     } else if (bartender.status === "READY") {
@@ -67,6 +69,8 @@ function showBartenders(bartenders) {
     } else {
       bartenderServing.textContent = `Serving: #${bartender.servingCustomer}`;
     }
+
+    bartenderStatus.classList = "bartender-status-dot";
 
     if (bartender.status === "WORKING") {
       bartenderStatus.classList.add("dot-working");
