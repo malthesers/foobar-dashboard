@@ -89,6 +89,13 @@ html {
       .data-column {
         grid-column: span 3;
         grid-row: span 3;
+        display: flex;
+        flex-direction: column;
+
+        .queue-container,
+        .serving-container {
+          overflow-y: hidden;
+        }
       }
 
       .data-box-storage {

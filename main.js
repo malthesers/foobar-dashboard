@@ -1,5 +1,5 @@
 "use strict";
-import { Chart, registerables } from 'chart.js';
+import { Chart, registerables } from "chart.js";
 Chart.register(...registerables);
 //import "./styles/style.scss";
 
@@ -23,9 +23,7 @@ const beersToInclude = ["El Hefe", "Fairy Tale Ale", "GitHop", "Hollaback Lager"
 function getData() {
   const dataURL = "https://group-7-foo-bar.herokuapp.com/";
   fetch(dataURL)
-    //fetches data from json
     .then((res) => res.json())
-    //then this ...
     .then((data) => {
       showBartenders(data.bartenders);
       showQueue(data.queue);
@@ -58,9 +56,8 @@ function showBartenders(bartenders) {
     } else if (bartender.status === "READY") {
       bartenderStatus.classList.add("dot-ready");
     }
-
   });
-  
+
   bartenders.forEach((bartender) => {
     const bartenderServing = document.querySelector(`#section-manager article[data-bartender="${bartender.name}"] .bartender-serving`);
     const bartenderStatus = document.querySelector(`#section-manager article[data-bartender="${bartender.name}"] .bartender-status-dot`);
@@ -71,14 +68,11 @@ function showBartenders(bartenders) {
       bartenderServing.textContent = `Serving: #${bartender.servingCustomer}`;
     }
 
-    if (bartender.status ==="WORKING"){
+    if (bartender.status === "WORKING") {
       bartenderStatus.classList.add("dot-working");
-  
-    } else if (bartender.status ==="READY"){
+    } else if (bartender.status === "READY") {
       bartenderStatus.classList.add("dot-ready");
     }
-
-
 
     //bartenderStatus.textContent = `Status: ${bartender.status}`;
   });
@@ -87,9 +81,7 @@ function showBartenders(bartenders) {
 function getKegs(taps) {
   const beersUrl = "https://group-7-foo-bar.herokuapp.com/beertypes";
   fetch(beersUrl)
-    //fetches data from json
     .then((res) => res.json())
-    //then this ...
     .then((kegs) => {
       //Filter through beers
       const filteredBeers = kegs.filter((beer) => {
@@ -99,7 +91,7 @@ function getKegs(taps) {
           return inclBeer === beer.name ? true : false;
         });
       });
-      //go to showKegs and with data from filteredBeers (only 7 beers not 10)
+      //Call sortBeers with parameters filteredBeers and taps
       sortBeers(filteredBeers, taps);
     });
 }
@@ -123,8 +115,12 @@ function sortBeers(beers, taps) {
 function showRemaining(beers) {
   const container = document.querySelector(".storage-articles");
   container.innerHTML = " ";
+
   //Laver et nyt array, som kun består af de 4 første øl
   beers.slice(0, 4).forEach((beer) => {
+    //Update beer labels to webp from png
+    beer.label = beer.label.replace(".png", ".webp");
+
     //clone template
     const kegClone = document.querySelector("#template-keg").cloneNode(true).content;
 
@@ -226,30 +222,36 @@ function showTime(timestamp, closingTime) {
   const minutes = getTime(date, "minutes");
   const seconds = getTime(date, "seconds");
 
-  const time = `${hours}:${minutes}:${seconds}`
+  const time = `${hours}:${minutes}:${seconds}`;
 
   document.querySelector(".header-current-time").textContent = time;
 
   showRemainingTime(time, closingTime);
 }
 
-function showRemainingTime (currentTime, closingTime) {
+function showRemainingTime(currentTime, closingTime) {
   //Split time into hours, min and sec
   const currentTimes = currentTime.split(":");
   const closingTimes = closingTime.split(":");
 
   //Convert to dates
-  const currentDate = new Date(0, 0, 0, currentTimes[0], currentTimes[1], currentTimes[2])
-  const closingDate = new Date(0, 0, 0, closingTimes[0], closingTimes[1], closingTimes[2])
+  const currentDate = new Date(0, 0, 0, currentTimes[0], currentTimes[1], currentTimes[2]);
+  const closingDate = new Date(0, 0, 0, closingTimes[0], closingTimes[1], closingTimes[2]);
 
   //Get difference in UNIX
   const timeDiff = closingDate.getTime() - currentDate.getTime();
 
   //Calculate hours, min and sec based on difference
-  const remainingHours = Math.floor(timeDiff / 1000 / 60 / 60).toString().padStart(2, "0");
-  const remainingMin = Math.floor((timeDiff / 1000 / 60) - (remainingHours * 60)).toString().padStart(2, "0");
-  const remainingSec = Math.floor((timeDiff / 1000) - (remainingHours * 60 * 60) - (remainingMin * 60)).toString().padStart(2, "0");
-  
+  const remainingHours = Math.floor(timeDiff / 1000 / 60 / 60)
+    .toString()
+    .padStart(2, "0");
+  const remainingMin = Math.floor(timeDiff / 1000 / 60 - remainingHours * 60)
+    .toString()
+    .padStart(2, "0");
+  const remainingSec = Math.floor(timeDiff / 1000 - remainingHours * 60 * 60 - remainingMin * 60)
+    .toString()
+    .padStart(2, "0");
+
   const remainingTime = `${remainingHours}:${remainingMin}:${remainingSec}`;
 
   document.querySelector(".header-remaining-time").textContent = `Closing in: ${remainingTime}`;
@@ -279,22 +281,20 @@ function showTotalOrders(queue) {
 
     document.querySelector("#section-manager .total-orders").textContent = totalOrders;
   }
-
-
 }
 
-function getTheme () {
+function getTheme() {
   //Get locally stored theme
   const theme = localStorage.getItem("theme") ? localStorage.getItem("theme") : "dark";
 
   //Change theme if not default/dark
-  if(theme === "light") {
+  if (theme === "light") {
     document.querySelector("input").checked = true;
     switchTheme();
   }
 }
 
-function switchTheme () {
+function switchTheme() {
   const html = document.querySelector("html");
   const logo = document.querySelector(".foobar-logo");
 
@@ -308,25 +308,20 @@ function switchTheme () {
   }
 
   //Store new theme locally
-  localStorage.setItem("theme", html.dataset.theme)
+  localStorage.setItem("theme", html.dataset.theme);
 }
 
-
 function showOrderNumbers(queue, serving) {
-  
-    const queueIndex = queue.order;
+  const queueIndex = queue.order;
 
-    const totalQueue = queue.length;
+  const totalQueue = queue.length;
 
-    const servingIndex = serving.order;
+  const servingIndex = serving.order;
 
-    const totalServing = serving.length;
+  const totalServing = serving.length;
 
-
-    document.querySelector(".in-queue-number").textContent = totalQueue;
-    document.querySelector(".being-served-number").textContent = totalServing;
-
-  
+  document.querySelector(".in-queue-number").textContent = totalQueue;
+  document.querySelector(".being-served-number").textContent = totalServing;
 }
 
 function showInventory(kegs) {
@@ -341,7 +336,7 @@ function showInventory(kegs) {
       return inclBeer === keg.name ? true : false;
     });
   });
-  
+
   //Empty canvas container
   document.querySelector("#inventory-chart-container").innerHTML = " ";
 
@@ -352,81 +347,77 @@ function showInventory(kegs) {
   inventoryChart.height = "auto";
   document.querySelector("#inventory-chart-container").appendChild(inventoryChart);
 
-
   const labels = ["El Hefe", "Fairy Tale Ale", "GitHop", "Hollaback Lager", "Hoppily Ever After", "Mowintime", "Sleighride"];
   const data = {
     labels: labels,
-    datasets: [{
-      label: 'Inventory',
-      data: [filteredKegs[0].amount,
-      filteredKegs[1].amount,
-      filteredKegs[2].amount,
-      filteredKegs[3].amount,
-      filteredKegs[4].amount,
-      filteredKegs[5].amount,
-      filteredKegs[6].amount
+    datasets: [
+      {
+        label: "Inventory",
+        data: [
+          filteredKegs[0].amount,
+          filteredKegs[1].amount,
+          filteredKegs[2].amount,
+          filteredKegs[3].amount,
+          filteredKegs[4].amount,
+          filteredKegs[5].amount,
+          filteredKegs[6].amount,
+        ],
+        backgroundColor: ["#FFD750"],
+        borderColor: ["#FFD750"],
+        borderWidth: 1,
+      },
     ],
-      backgroundColor: [
-        '#FFD750'
-      ],
-      borderColor: [
-        '#FFD750'
-      ], 
-      borderWidth: 1
-    }]
   };
 
   const config = {
-    type: 'bar',
+    type: "bar",
     data: data,
     options: {
       maintainAspectRatio: false,
       animation: {
-          duration: 0
-      },
-      scales: {
-        y: {
-          beginAtZero: true
-        }
+        duration: 0,
       },
       plugins: {
         legend: {
-          display: false
-        }
-      }
-    }
+          display: false,
+        },
+      },
+    },
   };
 
-  let chart = new Chart(
-    document.querySelector("#inventory-chart"),
-    config
-  )
-} 
+  let chart = new Chart(document.querySelector("#inventory-chart"), config);
+}
 
 const orderCounter = [
   {
     name: "El Hefe",
     amount: 0,
-  },{
+  },
+  {
     name: "Fairy Tale Ale",
     amount: 0,
-  },{
+  },
+  {
     name: "GitHop",
     amount: 0,
-  },{
+  },
+  {
     name: "Hollaback Lager",
     amount: 0,
-  },{
+  },
+  {
     name: "Hoppily Ever After",
     amount: 0,
-  },{
+  },
+  {
     name: "Mowintime",
     amount: 0,
-  },{
+  },
+  {
     name: "Sleighride",
     amount: 0,
-  }
-]
+  },
+];
 
 let latestOrder = 0;
 
@@ -435,25 +426,25 @@ function showSales(queue) {
   container.innerHTML = " ";
 
   //Iterate through each order
-  queue.forEach(currentOrder => {
+  queue.forEach((currentOrder) => {
     //Execute only if order is newer than the latest id
     if (latestOrder < currentOrder.id) {
       //Update id to most recent order
       latestOrder = currentOrder.id;
 
       //Iterate through array of sales
-      currentOrder.order.forEach(orderedBeer => {
+      currentOrder.order.forEach((orderedBeer) => {
         const beer = replaceBeer(orderedBeer);
 
         //Update sold amount of each beer
-        orderCounter.forEach(beerCounter => {
+        orderCounter.forEach((beerCounter) => {
           if (beer === beerCounter.name) {
             beerCounter.amount++;
           }
-        })
-      })
+        });
+      });
     }
-  })
+  });
 
   // orderCounter.forEach(beer=>{
   //   const kegClone = document.querySelector("#template-sales").cloneNode(true).content;
@@ -474,58 +465,50 @@ function showSales(queue) {
   salesChart.height = "auto";
   document.querySelector("#sales-chart-container").appendChild(salesChart);
 
-
   const labels = ["El Hefe", "Fairy Tale Ale", "GitHop", "Hollaback Lager", "Hoppily Ever After", "Mowintime", "Sleighride"];
   const data = {
     labels: labels,
-    datasets: [{
-      label: 'Todays sale',
-      data:[
-        orderCounter[0].amount,
-        orderCounter[1].amount,
-        orderCounter[2].amount,
-        orderCounter[3].amount,
-        orderCounter[4].amount,
-        orderCounter[5].amount,
-        orderCounter[6].amount
+    datasets: [
+      {
+        label: "Todays sale",
+        data: [
+          orderCounter[0].amount,
+          orderCounter[1].amount,
+          orderCounter[2].amount,
+          orderCounter[3].amount,
+          orderCounter[4].amount,
+          orderCounter[5].amount,
+          orderCounter[6].amount,
+        ],
+        backgroundColor: ["#70AF70"],
+        borderColor: ["#70AF70"],
+        borderWidth: 1,
+      },
     ],
-      backgroundColor: [
-        '#70AF70'
-      ],
-      borderColor: [
-        '#70AF70'
-      ], 
-      borderWidth: 1
-    }]
   };
 
   const config = {
-    type: 'bar',
+    type: "bar",
     data: data,
     options: {
       maintainAspectRatio: false,
       animation: {
-          duration: 0
+        duration: 0,
       },
       scales: {
         y: {
-          beginAtZero: true
-        }
+          beginAtZero: true,
+        },
       },
       plugins: {
         legend: {
-          display: false
-        }
-      }
-    }
+          display: false,
+        },
+      },
+    },
   };
 
-  let chart = new Chart(
-    document.querySelector("#sales-chart"),
-    config
-  )
-
-
+  let chart = new Chart(document.querySelector("#sales-chart"), config);
 }
 
 function replaceBeer(beer) {
