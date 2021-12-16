@@ -49,30 +49,10 @@ html {
     }
 
     #section-manager {
-      // display: grid;
-      // grid-template-columns: repeat(10, 1fr);
-      // grid-template-rows: repeat(2, 1fr);
-      // grid-gap: 1rem;
-
       display: flex;
       flex-direction: column;
       grid-gap: 1rem;
     }
-
-    // .data-box-inventory {
-    //   // grid-column: 1/7;
-    //   // grid-row: span 1;
-    // }
-
-    // .data-box-orders-queue {
-    //   // grid-column: 7/9;
-    //   // grid-row: span 1;
-    // }
-
-    // .data-box-manager-bartenders {
-    //   // grid-column: 1/5;
-    //   // grid-row: span 1;
-    // }
   }
   // ----------STOR IPAD PRO ----------
   @media (min-width: 1000px) {
